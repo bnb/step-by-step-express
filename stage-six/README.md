@@ -2,3 +2,4 @@
 
 - Added Error handling
 - Added favicon.ico
+- Added port detection (`process.env.PORT`)
