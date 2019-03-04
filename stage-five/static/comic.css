@@ -1,0 +1,8 @@
+h1 {
+  text-align: center;
+}    
+.entry {
+  display: block;
+  width: fit-content;
+  margin: 0 auto;
+}
