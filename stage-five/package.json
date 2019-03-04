@@ -12,7 +12,6 @@
   "dependencies": {
     "express": "^4.16.4",
     "express-handlebars": "^3.0.2",
-    "handlebars": "^4.1.0",
     "request": "^2.88.0"
   },
   "devDependencies": {
