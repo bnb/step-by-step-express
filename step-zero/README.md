@@ -16,7 +16,7 @@ Scaffolding out a Node.js project's boilerplate can be relatively straightforwar
   - This will spit out the text of the MIT license into my terminal, and uses an output redirection operator that puts that text into the LICENSE file.
   - I've found that some companies, including major tech companies like Google, block their employees from contributing to projects that don't have an explicit license file defined in a project. Best to lower that barrier up front.
 
-## As Code
+## As Commands
 
 Here's the commands I've used to scaffold out this project without all the context that's included above:
 
