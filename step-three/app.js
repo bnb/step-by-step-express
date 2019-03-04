@@ -20,4 +20,3 @@ app.get('/comic', (req, res) => {
 })
 
 app.listen(port, () => console.log(`Our app is now listening on port ${port}!`))
-\
