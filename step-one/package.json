@@ -1,5 +1,5 @@
 {
-  "name": "stage-one",
+  "name": "step-one",
   "version": "0.0.1",
   "description": "A simple Express App",
   "main": "app.js",
