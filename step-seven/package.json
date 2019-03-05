@@ -5,7 +5,8 @@
   "main": "app.js",
   "scripts": {
     "lint": "standard",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
   },
   "author": "Tierney Cyren <hello@bnb.im> (https://bnb.im)",
   "license": "MIT",

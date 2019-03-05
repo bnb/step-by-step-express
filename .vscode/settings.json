@@ -8,5 +8,6 @@
     "titleBar.activeForeground": "#e7e7e7",
     "titleBar.inactiveBackground": "#ff8f00",
     "titleBar.inactiveForeground": "#e7e7e7"
-  }
+  },
+  "appService.showBuildDuringDeployPrompt": false
 }

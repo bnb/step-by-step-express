@@ -1,15 +1,45 @@
 # What have we done in this step
 
-We've gone ahead and added some additional error handling into the application. There are a few options for automatically scaffolding out Express applications (like [`express-generator`](http://npm.im/express-generator)) that will build out more effective error handling, but for this example I wanted to be sure to show you could build your own with minimal effort.
+We've Dockerized!
 
-Additionally, we've added the ability to consume the `PORT` environment variable as the port we _should_ run the application on. If `PORT` isn't defined, we fall back to port `8080`. This is the only change required to deploy our app up to Azure AppService \o/
+The first step was adding a new npm script, `start`, which can be run to start our app via npm. We've added this as a tiny touch of developer expereince.
 
-Here's a general checklist of what you'll need to do to make sure your app will work with the least amount of effort when you deploy to AppService:
+Next, we went ahead and created `Dockerfile` and `.dockerignore`. In the dockerfile we've scaffolded out an extremely basic setup:
 
-- Run your app on the port defined via the `PORT` environment variable
-- The value of the `main` property in your `package.json` is the same as the main file of your app
-- Your dependencies are all defined in `package.json`
+**Dockerfile:**
 
-We can now right-click on the directory in VS Code and select "Deploy to Web App" and ship it to prod!
+- Use the latest Node.js LTS with Alpine Linux
+- Create an application directory
+- Copy over the `package.json` and `package-lock.json` from the current directory
+- Run `npm ci` to install dependencies rapidly
+- Copy the dependencies into the app directory
+- Run `npm start`
 
-Also, we added a `favicon.ico`.
+**.dockerignore:**
+
+- Ignore `node_modules`
+- Ignore npm's debug file
+
+Next, we'll _need_ to run a command to actually build the Docker image from the `Dockerfile`. To do this, run the following command after replacing `<YOUR_DOCKER_HUB_USERNAME>` with your [Docker Hub](https://hub.docker.com/) username:
+
+```bash
+docker build -t <YOUR_DOCKER_HUB_USERNAME>/step-by-step-express .
+```
+
+It's worth noting that `<YOUR_DOCKER_HUB_USERNAME>/step-by-step-express` can be any string – this is just the one I've decided to use personally, as it's more easily identifyable. You're not required to include your Docker Hub username nor the repo/project name, but this does seem to be the naming convention the Docker community has standardized on.
+
+From there, we'll want to run the Docker image, publshing (`-p`) port 8080 and running it in detached mode (`-d`). You'll need to have Docker locally installed for this step!
+
+```bash
+docker run -p 8080:8080 -d <YOUR_DOCKER_HUB_USERNAME>/step-by-step-express
+```
+
+Next, you're going to want to publish this image to Docker Hub – this just requires a few steps:
+
+```bash
+docker login # log in with your Docker Hub credentials
+```
+
+```bash
+docker push <YOUR_DOCKER_HUB_USERNAME>/step-by-step-express
+```

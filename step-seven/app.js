@@ -3,6 +3,7 @@ const request = require('request')
 const handlebars = require('express-handlebars')
 const app = express()
 const port = process.env.PORT ? process.env.PORT : 8080
+const host = process.env.DOCKER_HOST ? process.env.DOCKER_HOST : '0.0.0.0'
 
 // Define rendering engine + static directory
 app.engine('handlebars', handlebars())
@@ -43,4 +44,4 @@ app.get('/comic', (req, res) => {
   }
 })
 
-app.listen(port, () => console.log(`Our app is now listening on port ${port}!`))
+app.listen(port, host, () => console.log(`Our app is now listening at ${host}:${port}!`))
