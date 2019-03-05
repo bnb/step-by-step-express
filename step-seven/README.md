@@ -41,5 +41,9 @@ docker login # log in with your Docker Hub credentials
 ```
 
 ```bash
-docker push <YOUR_DOCKER_HUB_USERNAME>/step-by-step-express
+docker push <YOUR_DOCKER_HUB_USERNAME>/step-by-step-express # push the image you built to hub.docker.com (the public registry)
 ```
+
+Now, your app can be consumed on the public internet extremely easily! This is great any host that can deploy from Docker images, like [App Service](https://azure.microsoft.com/services/app-service/?WT.mc_id=stepbystepexpress-github-ticyren).
+
+Additionally, since this step now has a Dockerfile you could even automatically build the Dockerfile on every commit and deploy it to production using something like App Service's [Deployment](https://docs.microsoft.com/azure/devops/pipelines/apps/cd/deploy-docker-webapp?view=azure-devops&WT.mc_id=stepbystepexpress-github-ticyren) functionality or [Azure Pipelines](https://docs.microsoft.com/azure/devops/pipelines/languages/docker?view=azure-devops&tabs=yaml&WT.mc_id=stepbystepexpress-github-ticyren) for ease of use \o/

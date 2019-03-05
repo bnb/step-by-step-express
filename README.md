@@ -71,7 +71,7 @@ Read more in the Step Four [README.md](./step-four/README.md)
 - Call Express's `static` method to serve CSS
 - Create the `/static` directory + add our CSS file to it
 
-To run the Step five code:
+To run the Step Five code:
 
 ```bash
 # make sure your current working directory is the main directory of this repo
@@ -87,7 +87,7 @@ Read more in the Step Five [README.md](./step-five/README.md)
 - Added port detection (`process.env.PORT`) that allows us to ship it to Auzre
 - Added `favicon.ico` to make browsers happy
 
-To run the Step six code:
+To run the Step Six code:
 
 ```bash
 # make sure your current working directory is the main directory of this repo
@@ -96,3 +96,22 @@ node app.js
 ```
 
 Read more in the Step Six [README.md](./step-six/README.md)
+
+## Step Seven
+
+- Dockerized
+  - Added `Dockerfile`
+  - Added `.dockerignore`
+- Added `host` variable to detect if `HOST` environment variable is defined, defaulting to `0.0.0.0` if not.
+  - Express now listens to the `host` as its host
+- Added `start` npm script, which can be called with `npm start`
+
+To run the Step Seven code:
+
+```bash
+# make sure your current working directory is the main directory of this repo
+cd step-seven
+node app.js
+```
+
+Read more in the Step Seven [README.md](./step-seven/README.md)
